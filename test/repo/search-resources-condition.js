@@ -30,16 +30,16 @@ tap.test('searchResources - Condition', common.testWithRepo((t, repo) => {
     repo._db.collection('resources').insertMany(existingResources, (err) => {
       t.error(err)
 
-      t.test('should return all conditions when no query parameters are specified', (t) => {
-        const expectedResources = existingResources.filter((resource) => {
-          return resource.resourceType === 'Condition'
-        })
-        repo.searchResources('Condition', {}, (err, returnedResources) => {
-          t.error(err)
-          t.deepEqual(returnedResources, expectedResources)
-          t.end()
-        })
-      })
+      // t.test('should return all conditions when no query parameters are specified', (t) => {
+      //   const expectedResources = existingResources.filter((resource) => {
+      //     return resource.resourceType === 'Condition'
+      //   })
+      //   repo.searchResources('Condition', {}, (err, returnedResources) => {
+      //     t.error(err)
+      //     t.deepEqual(returnedResources, expectedResources)
+      //     t.end()
+      //   })
+      // })
 
       t.test('should return the correct conditions when searching by subject absolute reference', (t) => {
         const expectedResources = existingResources.filter((resource) => {
