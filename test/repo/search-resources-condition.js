@@ -41,31 +41,31 @@ tap.test('searchResources - Condition', common.testWithRepo((t, repo) => {
       //   })
       // })
 
-      t.test('should return the correct conditions when searching by subject absolute reference', (t) => {
-        const expectedResources = existingResources.filter((resource) => {
-          return resource.resourceType === 'Condition' &&
-              resource.subject &&
-              resource.subject.reference === `Patient/${patientId}`
-        })
-        repo.searchResources('Condition', {subject: `Patient/${patientId}`}, (err, returnedResources) => {
-          t.error(err)
-          t.deepEqual(returnedResources, expectedResources)
-          t.end()
-        })
-      })
+      // t.test('should return the correct conditions when searching by subject absolute reference', (t) => {
+      //   const expectedResources = existingResources.filter((resource) => {
+      //     return resource.resourceType === 'Condition' &&
+      //         resource.subject &&
+      //         resource.subject.reference === `Patient/${patientId}`
+      //   })
+      //   repo.searchResources('Condition', {subject: `Patient/${patientId}`}, (err, returnedResources) => {
+      //     t.error(err)
+      //     t.deepEqual(returnedResources, expectedResources)
+      //     t.end()
+      //   })
+      // })
 
-      t.test('should return the correct conditions when searching by subject id reference', (t) => {
-        const expectedResources = existingResources.filter((resource) => {
-          return resource.resourceType === 'Condition' &&
-            resource.subject &&
-            resource.subject.reference === `Patient/${patientId}`
-        })
-        repo.searchResources('Condition', {'subject:Patient': patientId}, (err, returnedResources) => {
-          t.error(err)
-          t.deepEqual(returnedResources, expectedResources)
-          t.end()
-        })
-      })
+      // t.test('should return the correct conditions when searching by subject id reference', (t) => {
+      //   const expectedResources = existingResources.filter((resource) => {
+      //     return resource.resourceType === 'Condition' &&
+      //       resource.subject &&
+      //       resource.subject.reference === `Patient/${patientId}`
+      //   })
+      //   repo.searchResources('Condition', {'subject:Patient': patientId}, (err, returnedResources) => {
+      //     t.error(err)
+      //     t.deepEqual(returnedResources, expectedResources)
+      //     t.end()
+      //   })
+      // })
 
       t.end()
     })
